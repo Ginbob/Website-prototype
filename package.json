@@ -1,0 +1,25 @@
+{
+  "name": "website-prototype",
+  "version": "1.0.0",
+  "description": "Website prototype for onlince presence of people",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ginbob/Website-prototype.git"
+  },
+  "keywords": [
+    "Website",
+    "People",
+    "Private",
+    "Homepage"
+  ],
+  "author": "henning.nobbe@gmail.com",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Ginbob/Website-prototype/issues"
+  },
+  "homepage": "https://github.com/Ginbob/Website-prototype#readme"
+}
