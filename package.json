@@ -7,7 +7,7 @@
     "start": "node build/index.js",
     "start:local": "NODE_ENV=local nodemon",
     "start:docker-local": "NODE_ENV=docker-local nodemon",
-    "build": "rimraf ./build && tsc",
+    "build": "rimraf ./build && npm install && tsc",
     "test": "jest"
   },
   "repository": {
