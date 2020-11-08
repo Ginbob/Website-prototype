@@ -4,8 +4,8 @@
   "description": "Website prototype for online presence of people",
   "main": "index.js",
   "scripts": {
-    "start": "ls -al ../ && ls -al ./build && ls -al ./build/ressources && node ./build/index.js",
-    "postinstall": "ls -al && tsc && cp -r ./src/ressources ./build",
+    "start": "ls -al ./build && ls -al ./build/ressources && node ./build/index.js",
+    "postinstall": "ls -al && tsc && cp -r ./src/ressources ./build/ressources",
     "start:local": "NODE_ENV=local nodemon",
     "start:docker-local": "NODE_ENV=docker-local nodemon",
     "build": "rimraf ./build && tsc",
