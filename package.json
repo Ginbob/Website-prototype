@@ -4,7 +4,8 @@
   "description": "Website prototype for online presence of people",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && nodemon",
+    "start": "node ./build/index.js",
+    "postinstall": "tsc",
     "start:local": "NODE_ENV=local nodemon",
     "start:docker-local": "NODE_ENV=docker-local nodemon",
     "build": "rimraf ./build && tsc",
