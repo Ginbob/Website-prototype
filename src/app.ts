@@ -1,5 +1,5 @@
 import Koa = require('koa');
-import {router} from "./app/appController";
+import {router} from "./appController";
 const path = require('path');
 const dotenv = require('dotenv');
 const serve = require('koa-static');
