@@ -1,4 +1,4 @@
-import {indexStyling} from "../css";
+import {indexStyling} from "../scss/main.scss";
 
 export function getIndexHtml() {
     return `<!doctype html>
@@ -17,7 +17,7 @@ export function getIndexHtml() {
 <!--            <video class="index_video" src="/single_shot_bw.mp4" muted loop autoplay playsinline style="opacity: 0"-->
 <!--                   onplay="this.style.opacity=1;">-->
 <!--            </video>-->
-            <video class="index_video" src="/lars_rage_mode.mp4" muted loop autoplay style="opacity: 0"
+            <video class="index_video" src="/lars_rage_mode.mp4" playsinline muted loop style="opacity: 1"
                    onplay="this.style.opacity=1;">
             </video>
 <!--            <div class="landing__header landing__header&#45;&#45;left">-->
@@ -176,6 +176,40 @@ export function getIndexHtml() {
                 </div>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+            if (isSafari) {
+                $(document).ready(function(){
+                  // Add smooth scrolling to all links
+                  $("a").on('click', function(event) {
+                
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                      // Prevent default anchor click behavior
+                      event.preventDefault();
+                
+                      // Store hash
+                      var hash = this.hash;
+                
+                      // Using jQuery's animate() method to add smooth page scroll
+                      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                      $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                      }, 800, function(){
+                   
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                      });
+                    } // End if
+                  });
+                });
+            }
+        </script>
+        <script>
+            const videoElement = document.querySelector('.index_video');
+            videoElement.play();
+        </script>
     </body>
 </html>`;
 }
