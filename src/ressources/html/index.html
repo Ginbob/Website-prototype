@@ -1,6 +1,12 @@
 <div id="top" class="landing">
     <div class="top-content">
-        <img src="/images/Logo-Fraktion-blau-gelb.png">
+        <div class="social-media-icon-bar">
+            <a href="https://www.instagram.com/lar_alt/"><img class="icon" src="/icons/instagram_icon.svg" /></a>
+            <a href="https://www.facebook.com/alt.politik/"><img class="icon" src="/icons/Facebook_icon.svg" /></a>
+        </div>
+        <div class="party-logo">
+            <img src="/images/Logo-Fraktion-blau-gelb.png">
+        </div>
     </div>
     <div class="overflow">
         <div class="overflow__single">
@@ -155,3 +161,40 @@
 <!--        </div>-->
 <!--    </div>-->
 </div>
+<script>
+    const stylesheet = document.styleSheets[0];
+    function findLandingBeforeStyleRule() {
+        let ruleToChange;
+        for (var i = 0; i < stylesheet.cssRules.length; i++) {
+            const classRule = stylesheet.cssRules[i];
+            if (classRule.selectorText === '.landing::before') {
+                ruleToChange = classRule;
+            }
+        }
+        return ruleToChange;
+    }
+
+    const images = ['/images/background-image1.jpg', '/images/background-image2.jpg', '/images/background-image1.jpg', '/images/background-image2.jpg'];
+    let index = 1;
+
+    function changeBackgroundImage(styleRule, imageIndex) {
+        styleRule.style.opacity = "0";
+        setTimeout(function () {
+            styleRule.style.backgroundImage = "url('" + images[imageIndex] + "')";
+            styleRule.style.opacity = "0.8";
+        }, 1000);
+    }
+
+    setInterval(function(){
+        if (index === images.length) {
+            index = 0;
+        }
+        console.log('current index: ' + index);
+        const styleRule = findLandingBeforeStyleRule();
+        if (styleRule) {
+            changeBackgroundImage(styleRule, index);
+        }
+        index++;
+    }, 5000);
+
+</script>

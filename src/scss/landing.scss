@@ -1,0 +1,104 @@
+.landing {
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  width: 70%;
+  max-width: 1000px;
+  height: 60vw;
+  max-height: 650px;
+}
+
+.landing::before {
+  background-image: url('/images/background-image1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  position: absolute;
+  margin: 0 auto;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  top: 0px;
+  width: 70%;
+  max-width: 1000px;
+  height: 60vw;
+  max-height: 650px;
+  transition: opacity 0.8s;
+  opacity: 0.8;
+}
+
+.top-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  height: 100%;
+  z-index: 2;
+}
+
+.social-media-icon-bar {
+  width: 20%;
+  margin: 1em;
+  img {
+    padding: 1em 0.3em;
+    width: 35px;
+  }
+}
+
+.party-logo {
+  width: 80%;
+  max-width: 280px;
+  margin: 1em;
+  img {
+    //padding: 1em 1em;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 1000px)  {
+  .top-content {
+    .party-logo {
+      max-width: 220px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px)  {
+  .landing {
+    width: 100%;
+    flex-flow: row
+  }
+
+  .landing::before {
+    margin: 0;
+    width: 100%;
+  }
+
+  .top-content {
+    flex-flow: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .party-logo {
+    width: 50%;
+  }
+
+  .social-media-icon-bar {
+    width: 100%;
+    margin: 0 1em;
+    img {
+      width: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px)  {
+  .social-media-icon-bar {
+    img {
+      width: 20px;
+      padding: 0.5em 0.1em;
+    }
+  }
+}

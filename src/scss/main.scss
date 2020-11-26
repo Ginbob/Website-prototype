@@ -6,9 +6,7 @@ $violett: #56256B;
 $turquoise: #00A8AE;
 
 @import "menu";
-
-h1, h2, h3, h4, h5, h6 {
-}
+@import "landing.scss";
 
 html {
   scroll-behavior: smooth;
@@ -23,52 +21,23 @@ body {
   width: 100%;
 }
 
-.landing {
-  margin: auto;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-end;
-  width: 70%;
-  max-width: 1000px;
-  height: 50vw;
-  max-height: 650px;
-  background-image: url('/images/background-image.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.top-content {
-  align-self: flex-end;
-  margin: 1em 2em;
-  padding: 1em 2em;
-  width: 200px;
-  height: 100%;
-  //background-image: url('/images/Logo-Fraktion-blau-gelb.png');
-  //background-size: contain;
-  //background-repeat: no-repeat;
-}
-
-.top-content img {
-  width: 100%;
-}
-
-
-.to-top-button {
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-  text-decoration: none;
-  opacity: 0.7;
-}
+//
+//.to-top-button {
+//  position: fixed; /* Fixed/sticky position */
+//  bottom: 20px; /* Place the button at the bottom of the page */
+//  right: 30px; /* Place the button 30px from the right */
+//  z-index: 99; /* Make sure it does not overlap */
+//  border: none; /* Remove borders */
+//  outline: none; /* Remove outline */
+//  background-color: red; /* Set a background color */
+//  color: white; /* Text color */
+//  cursor: pointer; /* Add a mouse pointer on hover */
+//  padding: 15px; /* Some padding */
+//  border-radius: 10px; /* Rounded corners */
+//  font-size: 18px; /* Increase font size */
+//  text-decoration: none;
+//  opacity: 0.7;
+//}
 
 .content {
   display: flex;
@@ -83,29 +52,4 @@ body {
 .section {
   width: 75%;
   max-width: 700px;
-}
-
-@media only screen and (max-width: 1000px)  {
-  .landing__header {
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 800px)  {
-  .landing {
-    width: 100%;
-    flex-flow: row
-  }
-
-  .top-content {
-    align-self: flex-start;
-  }
-}
-
-@media only screen and (max-width: 500px)  {
-  .landing__header {
-    font-size: 11px;
-    min-width: 100px;
-    border: 2px solid rgba(255, 255, 255, 0.85);
-  }
 }
