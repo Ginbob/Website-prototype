@@ -89,6 +89,10 @@
 }
 
 @media only screen and (max-width: 800px)  {
+  .overflow {
+    visibility: hidden;
+  }
+
   .navbar__item {
     height: calc(60vw / 5);
     width: 35%;

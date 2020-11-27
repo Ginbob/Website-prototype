@@ -1,11 +1,46 @@
 <div id="top" class="landing">
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler"/>
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <div class="menu">
+            <a href="#about" class="navbar__item">
+                <div class="menu-point black">
+                    Lars Alt
+                </div>
+            </a>
+            <a href="#current" class="navbar__item">
+                <div class="menu-point yellow">
+                    Aktuelles
+                </div>
+            </a>
+            <a href="#wanted" class="navbar__item">
+                <div class="menu-point red">
+                    Das will ich
+                </div>
+            </a>
+            <a href="#achieved" class="navbar__item">
+                <div class="menu-point blue">
+                    Das habe ich erreicht
+                </div>
+            </a>
+            <a href="#support" class="navbar__item">
+                <div class="menu-point green">
+                    So unterstützt Du mich
+                </div>
+            </a>
+        </div>
+    </div>
     <div class="top-content">
         <div class="social-media-icon-bar">
-            <a href="https://www.instagram.com/lar_alt/"><img class="icon" src="/icons/instagram_icon.svg" /></a>
-            <a href="https://www.facebook.com/alt.politik/"><img class="icon" src="/icons/Facebook_icon.svg" /></a>
+            <a target="_blank" href="https://www.instagram.com/lar_alt/"><img class="icon"
+                                                                              src="/icons/instagram_icon.svg"/></a>
+            <a target="_blank" href="https://www.facebook.com/alt.politik/"><img class="icon"
+                                                                                 src="/icons/Facebook_icon.svg"/></a>
         </div>
         <div class="party-logo">
-            <img src="/images/Logo-Fraktion-blau-gelb.png">
+            <img src="/images/FDP_Bund_BU_MGC_rgb.png">
         </div>
     </div>
     <div class="overflow">
@@ -39,6 +74,49 @@
             </a>
         </div>
     </div>
+
+
+</div>
+<script>
+    const stylesheet = document.styleSheets[0];
+
+    function findLandingBeforeStyleRule() {
+        let ruleToChange;
+        for (var i = 0; i < stylesheet.cssRules.length; i++) {
+            const classRule = stylesheet.cssRules[i];
+            if (classRule.selectorText === '.landing::before') {
+                ruleToChange = classRule;
+            }
+        }
+        return ruleToChange;
+    }
+
+    const images = ['/images/background-image1.jpg', '/images/background-image2.jpg', '/images/background-image1.jpg', '/images/background-image2.jpg'];
+    let index = 1;
+
+    function changeBackgroundImage(styleRule, imageIndex) {
+        styleRule.style.opacity = "0";
+        setTimeout(function () {
+            styleRule.style.backgroundImage = "url('" + images[imageIndex] + "')";
+            styleRule.style.opacity = "0.8";
+        }, 1000);
+    }
+
+    //
+    // setInterval(function(){
+    //     if (index === images.length) {
+    //         index = 0;
+    //     }
+    //     console.log('current index: ' + index);
+    //     const styleRule = findLandingBeforeStyleRule();
+    //     if (styleRule) {
+    //         changeBackgroundImage(styleRule, index);
+    //     }
+    //     index++;
+    // }, 5000);
+
+</script>
+
 <!--<a href="#top" class="to-top-button">Zum Seitenanfang</a>-->
 <!--    <div class="content">-->
 <!--        <div class="content__section black" id="about">-->
@@ -160,41 +238,3 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-</div>
-<script>
-    const stylesheet = document.styleSheets[0];
-    function findLandingBeforeStyleRule() {
-        let ruleToChange;
-        for (var i = 0; i < stylesheet.cssRules.length; i++) {
-            const classRule = stylesheet.cssRules[i];
-            if (classRule.selectorText === '.landing::before') {
-                ruleToChange = classRule;
-            }
-        }
-        return ruleToChange;
-    }
-
-    const images = ['/images/background-image1.jpg', '/images/background-image2.jpg', '/images/background-image1.jpg', '/images/background-image2.jpg'];
-    let index = 1;
-
-    function changeBackgroundImage(styleRule, imageIndex) {
-        styleRule.style.opacity = "0";
-        setTimeout(function () {
-            styleRule.style.backgroundImage = "url('" + images[imageIndex] + "')";
-            styleRule.style.opacity = "0.8";
-        }, 1000);
-    }
-
-    setInterval(function(){
-        if (index === images.length) {
-            index = 0;
-        }
-        console.log('current index: ' + index);
-        const styleRule = findLandingBeforeStyleRule();
-        if (styleRule) {
-            changeBackgroundImage(styleRule, index);
-        }
-        index++;
-    }, 5000);
-
-</script>

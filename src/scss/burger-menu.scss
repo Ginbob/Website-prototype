@@ -1,0 +1,107 @@
+@mixin centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin burgerLine {
+  width: 30px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: $yellow;
+}
+
+.menu-wrap {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  background: $magenta;
+  border-radius: 2px;
+  @include centered;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  @include burgerLine;
+  @include centered;
+  transition: all 0.4s ease;
+}
+
+/* Top and bottom lines */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -11px;
+  @include burgerLine;
+}
+
+/* Moves line down */
+.menu-wrap .hamburger > div:after {
+  top: 11px;
+}
+
+/* Toggler animate */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turn line into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.menu-wrap .menu {
+  position: relative;
+  top: 50px;
+  visibility: hidden;
+  transform: scale(0);
+  transition: all 0.6s ease;
+}
+
+.menu-point {
+  padding: 1em;
+  height: calc(40vh/5);
+  opacity: 0.75;
+}
+
+.menu-point:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 800px)  {
+  .menu-wrap {
+    display: block;
+  }
+}
