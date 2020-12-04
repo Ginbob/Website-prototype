@@ -4,7 +4,7 @@ $magenta: #E5007D;
 $orange: #F39200;
 $violett: #56256B;
 $turquoise: #00A8AE;
-
+$instagram_link_color: #0096f6;
 
 html {
   scroll-behavior: smooth;
@@ -19,6 +19,7 @@ body {
 @import "overflow-menu";
 @import "burger-menu";
 @import "landing";
+@import "instagramPosts";
 
 .content {
   display: flex;
@@ -28,9 +29,6 @@ body {
 .content__section {
   display: flex;
   justify-content: center;
-}
-
-.section {
   width: 75%;
-  max-width: 700px;
+  margin: auto;
 }

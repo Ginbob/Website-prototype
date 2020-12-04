@@ -4,32 +4,34 @@
         <div class="hamburger">
             <div></div>
         </div>
-        <div class="menu">
-            <a href="#about" class="navbar__item">
-                <div class="menu-point black">
-                    Lars Alt
-                </div>
-            </a>
-            <a href="#current" class="navbar__item">
-                <div class="menu-point yellow">
-                    Aktuelles
-                </div>
-            </a>
-            <a href="#wanted" class="navbar__item">
-                <div class="menu-point red">
-                    Das will ich
-                </div>
-            </a>
-            <a href="#achieved" class="navbar__item">
-                <div class="menu-point blue">
-                    Das habe ich erreicht
-                </div>
-            </a>
-            <a href="#support" class="navbar__item">
-                <div class="menu-point green">
-                    So unterstützt Du mich
-                </div>
-            </a>
+        <div class="menu-background">
+            <div class="menu">
+                <a href="#about" class="navbar__item">
+                    <div class="menu-point black">
+                        Lars Alt
+                    </div>
+                </a>
+                <a href="#current" class="navbar__item">
+                    <div class="menu-point yellow">
+                        Aktuelles
+                    </div>
+                </a>
+                <a href="#wanted" class="navbar__item">
+                    <div class="menu-point red">
+                        Das will ich
+                    </div>
+                </a>
+                <a href="#achieved" class="navbar__item">
+                    <div class="menu-point blue">
+                        Das habe ich erreicht
+                    </div>
+                </a>
+                <a href="#support" class="navbar__item">
+                    <div class="menu-point green">
+                        So unterstützt Du mich
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <div class="top-content">
@@ -74,9 +76,15 @@
             </a>
         </div>
     </div>
-
-
 </div>
+<% instagramPosts.forEach((post, idx) => { %>
+        <div class="ig_container">
+            <p class="ig_post_date"><%= post.date %></p>
+            <p><a class="ig_post_link" target="_blank" href="<%= process.env.INSTAGRAM_BASE_URI + post.shortcode %>" aria-label="Link zum Post vom <%= post.date %>">Zum Post auf Instagram</a></p>
+            <img src="<%= post.thumbnail %>" class="ig_post_image">
+            <p><%= post.text %></p>
+        </div>
+<% }); %>
 <script>
     const stylesheet = document.styleSheets[0];
 
