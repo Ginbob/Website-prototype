@@ -77,6 +77,7 @@
         </div>
     </div>
 </div>
+<div id="insta-feed"></div>
 <% instagramPosts.forEach((post, idx) => { %>
         <div class="ig_container">
             <p class="ig_post_date"><%= post.date %></p>
@@ -86,30 +87,30 @@
         </div>
 <% }); %>
 <script>
-    const stylesheet = document.styleSheets[0];
-
-    function findLandingBeforeStyleRule() {
-        let ruleToChange;
-        for (var i = 0; i < stylesheet.cssRules.length; i++) {
-            const classRule = stylesheet.cssRules[i];
-            if (classRule.selectorText === '.landing::before') {
-                ruleToChange = classRule;
-            }
-        }
-        return ruleToChange;
-    }
-
-    const images = ['/images/background-image1.jpg', '/images/background-image2.jpg', '/images/background-image1.jpg', '/images/background-image2.jpg'];
-    let index = 1;
-
-    function changeBackgroundImage(styleRule, imageIndex) {
-        styleRule.style.opacity = "0";
-        setTimeout(function () {
-            styleRule.style.backgroundImage = "url('" + images[imageIndex] + "')";
-            styleRule.style.opacity = "0.8";
-        }, 1000);
-    }
-
+    // const stylesheet = document.styleSheets[0];
+    //
+    // function findLandingBeforeStyleRule() {
+    //     let ruleToChange;
+    //     for (var i = 0; i < stylesheet.cssRules.length; i++) {
+    //         const classRule = stylesheet.cssRules[i];
+    //         if (classRule.selectorText === '.landing::before') {
+    //             ruleToChange = classRule;
+    //         }
+    //     }
+    //     return ruleToChange;
+    // }
+    //
+    // const images = ['/images/background-image1.jpg', '/images/background-image2.jpg', '/images/background-image1.jpg', '/images/background-image2.jpg'];
+    // let index = 1;
+    //
+    // function changeBackgroundImage(styleRule, imageIndex) {
+    //     styleRule.style.opacity = "0";
+    //     setTimeout(function () {
+    //         styleRule.style.backgroundImage = "url('" + images[imageIndex] + "')";
+    //         styleRule.style.opacity = "0.8";
+    //     }, 1000);
+    // }
+    //
     //
     // setInterval(function(){
     //     if (index === images.length) {

@@ -1,4 +1,4 @@
-const igScraper = require('instagram-scraping');
+const axios = require("axios");
 const dateFormat = require('dateformat');
 dateFormat.i18n = {
     dayNames: [
@@ -21,22 +21,32 @@ function getDateFormatted(timestamp) {
     return dateFormat(date, 'dd. mmmm yyyy');
 }
 
+function convertPostData(postNode) {
+    return {
+        mediaId: postNode.id,
+        shortcode: postNode.shortcode,
+        thumbnail: postNode.thumbnail_src,
+        date: getDateFormatted(postNode.taken_at_timestamp),
+        text: postNode.edge_media_to_caption.edges[0].node.text
+    };
+}
+
 module.exports.scrapeLarsProfile = async () => {
-    const larsData = await igScraper.scrapeUserPage('lar_alt');
+    const userinfo = await axios.get("https://instagram.hanifdwyputra.xyz/?username=lar_alt");
+
     const igPosts = [];
-    let i = 0;
-    while (igPosts.length < 5 && i < larsData.medias.length) {
-        const post = larsData.medias[i];
-        if (!post.text.includes(privatePostFilter)) {
-            igPosts.push({
-                mediaId: post.media_id,
-                shortcode: post.shortcode,
-                thumbnail: post.thumbnail,
-                text: post.text,
-                date: getDateFormatted(post.date)
-            });
+    try {
+        const posts = userinfo.data.graphql.user.edge_owner_to_timeline_media.edges;
+        let i = 0;
+        while (igPosts.length < 5 && i < posts.length) {
+            const post = convertPostData(posts[i].node);
+            if (!post.text.includes(privatePostFilter)) {
+                igPosts.push(post);
+            }
+            i++;
         }
-        i++;
+        return igPosts;
+    } catch(error) {
+        console.log(error);
     }
-    return igPosts;
 }
