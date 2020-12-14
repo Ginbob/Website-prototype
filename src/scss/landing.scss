@@ -10,7 +10,7 @@
 }
 
 .landing::before {
-  background: url('/images/background-image1.jpg') no-repeat center center/cover;
+  background: url('/images/background-image1.jpg') no-repeat top center/cover;
   content: "";
   position: absolute;
   right: 0px;
@@ -50,16 +50,7 @@
   }
 }
 
-
-@media only screen and (max-width: 1000px)  {
-  .top-content {
-    .party-logo {
-      max-width: 220px;
-    }
-  }
-}
-
-@media only screen and (max-width: 800px)  {
+@media only screen and (max-width: 1024px)  {
   .landing {
     width: 100%;
     flex-flow: row
@@ -73,10 +64,9 @@
   .top-content {
     flex-flow: column-reverse;
     justify-content: space-between;
-  }
-
-  .party-logo {
-    width: 50%;
+    .party-logo {
+      width: 50%;
+    }
   }
 
   .social-media-icon-bar {

@@ -87,17 +87,7 @@ body {
   background-color: white;
 }
 
-@media only screen and (max-width: 1000px) {
-  .navbar__item {
-    font-size: 15px;
-    height: 100px;
-  }
-
-  .navbar__item:hover {
-    font-size: 17px;
-  }
-}
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   .overflow {
     visibility: hidden;
   }
@@ -252,7 +242,7 @@ body {
   opacity: 1;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   .menu-wrap {
     display: block;
   }
@@ -269,7 +259,7 @@ body {
 }
 
 .landing::before {
-  background: url("/images/background-image1.jpg") no-repeat center center/cover;
+  background: url("/images/background-image1.jpg") no-repeat top center/cover;
   content: "";
   position: absolute;
   right: 0px;
@@ -308,12 +298,7 @@ body {
   width: 100%;
 }
 
-@media only screen and (max-width: 1000px) {
-  .top-content .party-logo {
-    max-width: 220px;
-  }
-}
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   .landing {
     width: 100%;
     flex-flow: row;
@@ -328,8 +313,7 @@ body {
     flex-flow: column-reverse;
     justify-content: space-between;
   }
-
-  .party-logo {
+  .top-content .party-logo {
     width: 50%;
   }
 
@@ -347,22 +331,73 @@ body {
   }
 }
 .ig_container {
-  padding: 15px 2em;
-  width: 60%;
-  max-width: 600px;
+  padding: 2em;
+  width: 70%;
   margin: 2em auto;
   border-radius: 5px;
   box-shadow: 0px 0px 3px 3px #c1c1c1;
+  display: flex;
+  flex-flow: column;
 }
-.ig_container .ig_post_image {
+.ig_container p {
+  margin: 0;
+}
+
+.ig_date_and_link {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.ig_image_and_desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ig_image {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig_post_image {
   width: 100%;
 }
-.ig_container .ig_post_link {
+
+.ig_desc {
+  width: 65%;
+}
+
+.ig_post_link {
   text-decoration: none;
   color: #0096f6;
   margin: 0.5em 0;
 }
 
+@media only screen and (max-width: 1024px) {
+  .ig_container {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .ig_date_and_link {
+    flex-flow: column;
+  }
+
+  .ig_image_and_desc {
+    flex-flow: column;
+  }
+
+  .ig_image {
+    width: 100%;
+  }
+
+  .ig_desc {
+    margin-top: 2em;
+    width: 100%;
+  }
+}
 .content {
   display: flex;
   flex-flow: column;

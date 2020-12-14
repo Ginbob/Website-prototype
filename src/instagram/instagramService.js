@@ -1,5 +1,14 @@
-const axios = require("axios");
+const instaTouch = require("instatouch");
 const dateFormat = require('dateformat');
+const NodeCache = require('node-cache');
+
+/**
+ * Google API calls cost money and it's not really important if the results are stale. There for we want to cache them, in memory should be enough for now.
+ */
+const myCache = new NodeCache({
+    stdTTL: 3600
+});
+
 dateFormat.i18n = {
     dayNames: [
         'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa',
@@ -14,39 +23,51 @@ dateFormat.i18n = {
     ]
 };
 
-const privatePostFilter = '#lp'
+const privatePostFilter = '#lp';
+const instaFeed = 'instaFeed'
 
 function getDateFormatted(timestamp) {
     const date = new Date(timestamp * 1000);
     return dateFormat(date, 'dd. mmmm yyyy');
 }
 
+function cutDescription(description) {
+    if (description.length > 250) {
+        return description.slice(0, 251) + "...";
+    }
+    return description;
+}
+
 function convertPostData(postNode) {
+
+    const description = cutDescription(postNode.description);
     return {
         mediaId: postNode.id,
         shortcode: postNode.shortcode,
         thumbnail: postNode.thumbnail_src,
         date: getDateFormatted(postNode.taken_at_timestamp),
-        text: postNode.edge_media_to_caption.edges[0].node.text
+        text: description
     };
 }
 
 module.exports.scrapeLarsProfile = async () => {
-    const userinfo = await axios.get("https://instagram.hanifdwyputra.xyz/?username=lar_alt");
-
     const igPosts = [];
     try {
-        const posts = userinfo.data.graphql.user.edge_owner_to_timeline_media.edges;
-        let i = 0;
-        while (igPosts.length < 5 && i < posts.length) {
-            const post = convertPostData(posts[i].node);
-            if (!post.text.includes(privatePostFilter)) {
-                igPosts.push(post);
-            }
-            i++;
+        const cachedContent = myCache.get(instaFeed);
+        if (cachedContent) {
+            console.log("serving ig feed from cache");
+            return cachedContent;
+        } else {
+            const options = {count: 10, mediaType: 'image'};
+            const user = await instaTouch.user('lar_alt', options);
+            igPosts.push(...user.collector.map(convertPostData));
+            myCache.set(instaFeed, igPosts);
+            console.log("fetched ig feed");
+            return igPosts;
         }
-        return igPosts;
-    } catch(error) {
+    } catch
+        (error) {
         console.log(error);
+        return [];
     }
 }
