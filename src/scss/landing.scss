@@ -4,13 +4,13 @@
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
-  width: 80%;
+  width: 90%;
   max-width: 1300px;
   height: 90vh;
 }
 
 .landing::before {
-  background: url('/images/background-image1.jpg') no-repeat top center/cover;
+  background: url('/images/background-image1.jpg') no-repeat 35% center/cover;
   content: "";
   position: absolute;
   right: 0px;
