@@ -77,30 +77,30 @@
         </div>
     </div>
 </div>
-<!--<div class="ig_section">-->
-<!--    <% instagramPosts.forEach((post, idx) => { %>-->
-<!--            <div class="ig_container">-->
-<!--                <div class="ig_date_and_link">-->
-<!--                    <p class="ig_post_date"><%= post.date %></p>-->
-<!--                    <p><a class="ig_post_link" target="_blank" href="<%= process.env.INSTAGRAM_BASE_URI + post.shortcode %>" aria-label="Link zum Post vom <%= post.date %>">Zum Instagram Post</a></p>-->
-<!--                </div>-->
-<!--                <div class="ig_image_and_desc">-->
-<!--                    <div class="ig_image">-->
-<!--                        <% if(post.isVideo) { %>-->
-<!--                            <video controls class="ig_post_image">-->
-<!--                                <source src="<%= post.videoUrl %>" type="video/mp4">-->
-<!--                            </video>-->
-<!--                        <% } else { %>-->
-<!--                            <img src="<%= post.thumbnail %>" class="ig_post_image">-->
-<!--                        <% } %>-->
-<!--                    </div>-->
-<!--                    <div class="ig_desc">-->
-<!--                        <p><%= post.text %></p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--    <% }); %>-->
-<!--</div>-->
+<div class="ig_section">
+    <% instagramPosts.forEach((post, idx) => { %>
+            <div class="ig_container">
+                <div class="ig_date_and_link">
+                    <p class="ig_post_date"><%= post.date %></p>
+                    <p><a class="ig_post_link" target="_blank" href="<%= process.env.INSTAGRAM_BASE_URI + post.shortcode %>" aria-label="Link zum Post vom <%= post.date %>">Zum Instagram Post</a></p>
+                </div>
+                <div class="ig_image_and_desc">
+                    <div class="ig_image">
+                        <% if(post.isVideo) { %>
+                            <video controls class="ig_post_image">
+                                <source src="<%= post.videoUrl %>" type="video/mp4">
+                            </video>
+                        <% } else { %>
+                            <img src="<%= post.thumbnail %>" class="ig_post_image">
+                        <% } %>
+                    </div>
+                    <div class="ig_desc">
+                        <p><%= post.text %></p>
+                    </div>
+                </div>
+            </div>
+    <% }); %>
+</div>
 <script>
     // const stylesheet = document.styleSheets[0];
     //

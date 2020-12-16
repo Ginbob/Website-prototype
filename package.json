@@ -28,7 +28,6 @@
     "dotenv": "^8.2.0",
     "dotenv-cli": "^3.2.0",
     "faucet-pipeline-sass": "^1.4.0",
-    "instatouch": "^2.3.3",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
@@ -39,6 +38,8 @@
     "koa-static": "^5.0.0",
     "lodash": "^4.17.20",
     "node-cache": "^5.1.2",
+    "node-html-parser": "^2.0.0",
+    "rss-parser": "^3.10.0",
     "smoothscroll-polyfill": "^0.4.4",
     "uuid": "^8.3.1"
   },
