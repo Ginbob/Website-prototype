@@ -195,12 +195,14 @@ body {
 .menu-wrap .toggler ~ .menu-background {
   opacity: 0;
   transition: opacity 0.4s;
+  height: 0;
 }
 
 /* Show Menu */
 .menu-wrap .toggler:checked ~ .menu-background {
   opacity: 1;
   transition: opacity 0.4s;
+  height: 100vh;
 }
 
 .menu-wrap .toggler:checked ~ .menu-background .menu {
