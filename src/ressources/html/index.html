@@ -86,7 +86,13 @@
                 </div>
                 <div class="ig_image_and_desc">
                     <div class="ig_image">
-                        <img src="<%= post.thumbnail %>" class="ig_post_image">
+                        <% if(post.isVideo) { %>
+                            <video controls class="ig_post_image">
+                                <source src="<%= post.videoUrl %>" type="video/mp4">
+                            </video>
+                        <% } else { %>
+                            <img src="<%= post.thumbnail %>" class="ig_post_image">
+                        <% } %>
                     </div>
                     <div class="ig_desc">
                         <p><%= post.text %></p>
