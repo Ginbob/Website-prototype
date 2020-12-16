@@ -1,6 +1,6 @@
 const NodeCache = require('node-cache');
-const igFetchService = require('./instagramRSSService');
-// const igFetchService = require('./instagramHTTPService');
+// const igFetchService = require('./instagramRSSService');
+const igFetchService = require('./instagramHTTPService');
 
 const myCache = new NodeCache({
     stdTTL: 3600
