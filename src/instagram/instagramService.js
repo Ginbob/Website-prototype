@@ -59,14 +59,15 @@ module.exports.scrapeLarsProfile = async () => {
             return cachedContent;
         } else {
             const options = {count: 10, mediaType: 'image'};
+            console.log("try fetching ig feed");
             const user = await instaTouch.user('lar_alt', options);
             igPosts.push(...user.collector.map(convertPostData));
             myCache.set(instaFeed, igPosts);
             console.log("fetched ig feed");
             return igPosts;
         }
-    } catch
-        (error) {
+    } catch (error) {
+        console.log("error thrown");
         console.log(error);
         return [];
     }
