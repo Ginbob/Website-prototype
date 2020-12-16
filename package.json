@@ -4,7 +4,7 @@
   "description": "Website prototype for online presence of people",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "node ./src/index.js",
     "prestart:local": "npm run build",
     "start:local": "NODE_ENV=local nodemon",
     "start:docker-local": "NODE_ENV=docker-local nodemon",
