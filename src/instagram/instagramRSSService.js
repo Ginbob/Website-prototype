@@ -14,7 +14,6 @@ function getImageLink(content) {
 }
 
 function convertFeed(feed) {
-    console.log(feed.items)
     return feed.items.map(post => {
         const description = igUtils.cutDescription(post.contentSnippet);
         const thumbnail = getImageLink(post.content);
