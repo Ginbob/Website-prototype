@@ -37,14 +37,11 @@
 .ig_image {
   width: 100%;
   @include centered;
-
-  img {
-    border-radius: 5px;
-  }
 }
 
 .ig_post_image {
   width: 100%;
+  border-radius: 5px;
 }
 
 .ig_desc {

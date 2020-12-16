@@ -371,12 +371,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-.ig_image img {
-  border-radius: 5px;
-}
 
 .ig_post_image {
   width: 100%;
+  border-radius: 5px;
 }
 
 .ig_desc {

@@ -7,8 +7,7 @@ function convertUserData(user) {
         const postNode = post.node
         const description = igUtils.cutDescription(post.node.edge_media_to_caption.edges[0].node.text);
         return {
-            mediaId: postNode.id,
-            shortcode: postNode.shortcode,
+            link: "https://www.instagram.com/p/" + postNode.shortcode,
             thumbnail: postNode.thumbnail_src,
             date: igUtils.getDateFormatted(postNode.taken_at_timestamp),
             text: description,
