@@ -33,7 +33,7 @@ async function fetchIGUser() {
             // ":method": "GET",
             // ":path": "/lar_alt/?__a=1",
             // ":scheme": "https",
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            "accept": "application/json,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
             "accept-encoding": "gzip, deflate, br",
             "accept-language": "de-DE,de;q=0.9",
             "cache-control": "no-cache",
