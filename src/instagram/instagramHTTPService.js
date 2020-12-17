@@ -1,4 +1,5 @@
 const axios = require('axios');
+const got = require('got');
 const igUtils = require('./instagramUtils');
 
 function convertUserData(user) {
@@ -46,8 +47,11 @@ async function fetchIGUser() {
             "keep-alive": "timeout=5, max=10000"
         }
     };
-    const response = await axios(options);
-    return convertUserData(response.data);
+    const response = await got(options.url);
+    return convertUserData(JSON.parse(response.body));
+    // const response = await axios(options);
+    // return convertUserData(response.data);
+
 }
 
 
