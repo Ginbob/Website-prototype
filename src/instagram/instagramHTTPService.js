@@ -52,6 +52,7 @@ async function fetchIGUser() {
     // const response = await got(options.url);
     // return convertUserData(JSON.parse(response.body));
     const response = await axios(options);
+    console.log(JSON.stringify(response));
     return convertUserData(response.data);
 }
 
