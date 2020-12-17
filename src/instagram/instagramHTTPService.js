@@ -1,6 +1,7 @@
 const axios = require('axios');
 const got = require('got');
 const igUtils = require('./instagramUtils');
+const htmlParser = require('node-html-parser')
 
 function convertUserData(user) {
     const posts = user.graphql.user.edge_owner_to_timeline_media.edges;
@@ -53,6 +54,19 @@ async function fetchIGUser() {
     // return convertUserData(response.data);
 
 }
+
+const puppeteer = require('puppeteer');
+
+(async () => {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://www.instagram.com/lar_alt/?__a=1');
+    const pageContent = await page.content();
+    const textContent = htmlParser.parse(pageContent).text;
+    const json = JSON.parse(textContent);
+    console.log(JSON.stringify(json, null, 2));
+    await browser.close();
+})();
 
 
 module.exports = {

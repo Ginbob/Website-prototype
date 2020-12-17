@@ -40,6 +40,7 @@
     "lodash": "^4.17.20",
     "node-cache": "^5.1.2",
     "node-html-parser": "^2.0.0",
+    "puppeteer": "^5.5.0",
     "rss-parser": "^3.10.0",
     "smoothscroll-polyfill": "^0.4.4",
     "uuid": "^8.3.1"
