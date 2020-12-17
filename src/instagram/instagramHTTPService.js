@@ -3,7 +3,6 @@ const axios = require('axios');
 const igUtils = require('./instagramUtils');
 
 function convertUserData(user) {
-    console.log(user);
     const posts = user.graphql.user.edge_owner_to_timeline_media.edges;
     return posts.map(post => {
         const postNode = post.node
@@ -52,7 +51,7 @@ async function fetchIGUser() {
     // const response = await got(options.url);
     // return convertUserData(JSON.parse(response.body));
     const response = await axios(options);
-    console.log(JSON.stringify(response, null, 2));
+    // console.log(response)
     return convertUserData(response.data);
 }
 
